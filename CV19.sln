@@ -3,13 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19WpfApp", "CV19WpfApp\CV19WpfApp.csproj", "{1F778A15-12CE-4621-A9C1-9EE31F747DAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV19WpfApp", "CV19WpfApp\CV19WpfApp.csproj", "{1F778A15-12CE-4621-A9C1-9EE31F747DAD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{72F17146-7A56-42FC-AA8D-B179A7CD82E8}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Desktop\covid-19\time_series_covid19_confirmed_global.csv = ..\..\..\..\..\Desktop\covid-19\time_series_covid19_confirmed_global.csv
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV19ConsoleApp", "CV19ConsoleApp\CV19ConsoleApp.csproj", "{E569C3B0-98C7-40E8-9600-52F77294C8F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV19ConsoleApp", "CV19ConsoleApp\CV19ConsoleApp.csproj", "{E569C3B0-98C7-40E8-9600-52F77294C8F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWpfApp", "TestWpfApp\TestWpfApp.csproj", "{4010D228-A85F-4D24-BE78-DAC233E593F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWpfApp", "TestWpfApp\TestWpfApp.csproj", "{4010D228-A85F-4D24-BE78-DAC233E593F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
