@@ -31,7 +31,7 @@ namespace CV19ConsoleApp
             {
                 var line = data_reader.ReadLine();
                 if (string.IsNullOrWhiteSpace(line)) continue;
-                yield return line.Replace("Korea,","Korea -");
+                yield return line.Replace("Bonaire,", "Bonaire -").Replace("Korea,", "Korea -");
             }
         }
 
@@ -53,7 +53,7 @@ namespace CV19ConsoleApp
                 var province = row[0].Trim();
                 var country_name = row[1].Trim(' ','"');
                 var counts = row.Skip(4).Select(int.Parse).ToArray();
-                yield return (province, country_name, counts);
+                yield return (country_name, province, counts);
             }
 
         }
