@@ -12,6 +12,24 @@ namespace CV19WpfApp.ViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        #region SelectedPageIndex: int - DESCRIPTON 
+        /// <summary>
+        /// Номер выбранной вкладки
+        /// </summary>
+        private int _SelectedPageIndex;
+
+        /// <summary>
+        /// Номер выбранной вкладки
+        /// </summary>
+        public int SelectedPageIndex
+        {
+            get => _SelectedPageIndex;
+            set => Set(ref _SelectedPageIndex, value);
+        }
+
+        #endregion
+
+
         #region A: 
         /// <summary>
         /// Текстовый набор данных для визуализации графиков
@@ -73,11 +91,29 @@ namespace CV19WpfApp.ViewModels
         }
         #endregion
 
+        #region SelectTabIndex
+
+        public ICommand ChangeTabIndexCommand { get; }
+
+        private bool CanChangeTabIndexCommandExecute(object p) => _SelectedPageIndex >= 0;
+
+        private void OnChangeTabIndexCommandExecute(object p)
+        {
+            if (p is null) return;
+            SelectedPageIndex+=Convert.ToInt32(p);
+        }
+
+        #endregion
+
+
+
         #endregion
         public MainWindowViewModel()
         {
             #region Команды
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
+            ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecute, CanChangeTabIndexCommandExecute);
+            
             #endregion
 
             var data_points=new List<DataPoint>((int)(360/0.1));
