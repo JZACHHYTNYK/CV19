@@ -19,6 +19,43 @@ namespace CV19WpfApp.ViewModels
 
         public ObservableCollection<Group> Groups { get; }
 
+        public object[] CompositeCollection { get; }
+
+        //#region ValueEx: int - DESCRIPTON 
+        ///// <summary>
+        ///// Номер выбранной вкладки
+        ///// </summary>
+        //private int _ValueEx;
+
+        ///// <summary>
+        ///// Номер выбранной вкладки
+        ///// </summary>
+        //public int ValueEx
+        //{
+        //    get => _ValueEx;
+        //    set => Set(ref _ValueEx, value);
+        //}
+
+        //#endregion
+
+
+        #region SelectedCompositeValue: obj - Выбранный непонятный элемент
+        /// <summary>
+        /// Выбранный непонятный элемент
+        /// </summary>
+        private object _SelectedCompositeValue;
+
+        /// <summary>
+        /// Выбранный непонятный элемент
+        /// </summary>
+        public object SelectedCompositeValue
+        {
+            get => _SelectedCompositeValue;
+            set => Set(ref _SelectedCompositeValue, value);
+        }
+
+        #endregion
+
 
         #region SelectedGroup
         /// <summary>
@@ -173,6 +210,15 @@ namespace CV19WpfApp.ViewModels
             });
 
             Groups = new ObservableCollection<Group>(groups);
+
+            var data_list=new List<object>();
+
+            data_list.Add("Hello World!");
+            data_list.Add(42);
+            var group = Groups[1];
+            data_list.Add(group);
+            data_list.Add(group.Students[0]);
+            CompositeCollection=data_list.ToArray();
 
         }
 

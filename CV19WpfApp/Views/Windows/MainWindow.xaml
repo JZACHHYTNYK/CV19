@@ -55,25 +55,52 @@
             </StatusBarItem>
             <StatusBarItem Content="{Binding SelectedPageIndex}"/>
         </StatusBar>
-
-
         <TabControl SelectedIndex="{Binding SelectedPageIndex}">
-            <TabItem Header="Вкладка 1">
+            <TabItem Header="Разнородные данные" Height="20" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding CompositeCollection}"
+                             SelectedItem="{Binding SelectedCompositeValue}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding }"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        
+                    </ListBox>
+                             
+                    <GroupBox Header="Выбранный элемент" Grid.Column="1">
+                        <ContentControl Content="{Binding SelectedCompositeValue}"/>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Студенты">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <!--<ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="7*"/>-->
-                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="229.267"/>
+                        <ColumnDefinition Width="20.733"/>
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
-                    <GroupBox Grid.Column="0" Header="Группы">
+                    <GroupBox Grid.Column="0" Header="Группы" Grid.ColumnSpan="2">
                         <ListBox ItemsSource="{Binding Groups}" SelectedIndex="0"
-                                 DisplayMemberPath="Name"
-                                 SelectedItem="{Binding SelectedGroup}"
-                                 />
+                                 SelectedItem="{Binding SelectedGroup}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="decanat:Group">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}"/>
+                                        <TextBlock Text="{Binding Students.Count,StringFormat=Студентов: {0} }" Margin="3 0 0 0"/>
+                                    </StackPanel>                              
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </GroupBox>
-                    <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name,FallbackValue='Студенты',TargetNullValue='Группа не выбрана'}" >
+                    <GroupBox Grid.Column="2" Header="{Binding SelectedGroup.Name,FallbackValue='Студенты',TargetNullValue='Группа не выбрана'}" >
                         <DataGrid ItemsSource="{Binding SelectedGroup.Students}"
                                   AutoGenerateColumns="False"
                                  CanUserAddRows="False"
@@ -129,7 +156,27 @@
                 </oxy:Plot>
             </TabItem>
             <TabItem Header="Вкладка 3"></TabItem>
-            <TabItem Header="Вкладка 4"></TabItem>
+            <TabItem Header="Генератор паролей">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Grid.Column="0">
+                        <TextBox Margin="2"/>
+                        <CheckBox Margin="2">Большие русские</CheckBox>
+                        <CheckBox Margin="2">Маленькие русские</CheckBox>
+                        <CheckBox Margin="2">Большие Английские</CheckBox>
+                        <CheckBox Margin="2">Маленькие английские</CheckBox>
+                        <CheckBox Margin="2">Спец символы</CheckBox>
+                        <Button Content="Сгенерировать пароль" Margin="5" Width="90" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
