@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CV19WpfApp"
               xmlns:vm="clr-namespace:CV19WpfApp.ViewModels"
+              xmlns:decanat="clr-namecpace:CV19WpfApp.Model.Decanat"
              StartupUri="Views\Windows\MainWindow.xaml">
     <Application.Resources>
-       
+        
     </Application.Resources>
 </Application>

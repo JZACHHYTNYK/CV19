@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CV19WpfApp.Model.Decanat
 {
-    internal class Student
+    public class Student
     {
         public string Name { get; set; }
 
