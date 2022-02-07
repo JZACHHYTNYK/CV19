@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace CV19WpfApp.ViewModels
 {
-    internal partial class MainWindowViewModel 
+    internal partial class MainWindowViewModel
     {
 
 
@@ -28,6 +28,23 @@ namespace CV19WpfApp.ViewModels
         }
 
         #endregion Password
+
+        #region LenghtString: int - DESCRIPTON 
+        /// <summary>
+        /// Вывод пароля 
+        /// </summary>
+        private int _LenghtString=4;
+
+        /// <summary>
+        /// Вывод пароля
+        /// </summary>
+        public int LenghtString
+        {
+            get => _LenghtString;
+            set => Set(ref _LenghtString, value);
+        }
+
+        #endregion LenghtString
 
         #region IsCheckBox_EngBig: bool - DESCRIPTON 
         /// <summary>
@@ -119,8 +136,8 @@ namespace CV19WpfApp.ViewModels
         }
         #endregion IsCheckBox_Numbers
 
-
         #endregion
+
 
 
 
@@ -131,9 +148,56 @@ namespace CV19WpfApp.ViewModels
 
         private void OnGeneratePasswordExecute(object p)
         {
-            PasswordOutput = "Test";
+            string str = "Test";
+            string result="";
+
+            //string[] smallEnglish = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+            string smallEnglish = "abcdefghijklmnoprstuvwxyz";
+            string bigEnglish = smallEnglish.ToUpper();
+            string smallRu = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
+            string bigRu=smallRu.ToUpper();
+            string NumbersStr = "1234567890";
+            string specSimvol="!@#$%^&*()_-=+?";
+
+            if (_EngSmall)
+            {
+                str += smallEnglish;
+            }
+            if (_EngBig)
+            {
+                str += bigEnglish;
+            }
+            if (_RuBig)
+            {
+                str += bigRu;
+            }
+            if (_RuSmall)
+            {
+                str += smallRu;
+            }
+            if (_Numbers)
+            {
+                str += NumbersStr;
+            }
+            if (_SpacialCharacters)
+            {
+                str += specSimvol;
+            }
+            Random random = new Random();
+
+            for (int i = 0; i < LenghtString; i++)
+            {
+                result+=str[random.Next(str.Length-1)].ToString();
+            }
+
+
+
+            PasswordOutput = result;
         }
         #endregion
+
+
+
 
 
 

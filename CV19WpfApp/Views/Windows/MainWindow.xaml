@@ -175,7 +175,9 @@
                         <CheckBox IsChecked="{Binding RuSmall}" Margin="2">Маленькие русские</CheckBox>
                         <CheckBox IsChecked="{Binding EngBig}" Margin="2">Большие Английские</CheckBox>
                         <CheckBox IsChecked="{Binding EngSmall}" Margin="2">Маленькие английские</CheckBox>
+                        <CheckBox IsChecked="{Binding Numbers}" Margin="2">Цифры</CheckBox>
                         <CheckBox IsChecked="{Binding SpacialCharacters}" Margin="2">Спец символы</CheckBox>
+                        <TextBox Text="{Binding LenghtString}"/>
                         <Button Command="{Binding GeneratePassword}" Content="Сгенерировать пароль" Margin="5" Width="90" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </Grid>
