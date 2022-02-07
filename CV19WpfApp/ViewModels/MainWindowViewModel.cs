@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace CV19WpfApp.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    internal partial class MainWindowViewModel : ViewModel
     {
 
         /*-------------------------------------------------------------------------------------------------------------------------*/
@@ -179,7 +179,7 @@ namespace CV19WpfApp.ViewModels
             #region Команды
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecute, CanChangeTabIndexCommandExecute);
-
+            GeneratePassword=new LambdaCommand(OnGeneratePasswordExecute,CanGeneratePasswordExecute);
             #endregion
 
             var data_points = new List<DataPoint>((int)(360 / 0.1));
