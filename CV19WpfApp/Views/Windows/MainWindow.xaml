@@ -96,6 +96,7 @@
                             </ResourceDictionary>
                         </GroupBox.Resources>
                         <ContentControl Content="{Binding SelectedCompositeValue}"/>
+                        
                     </GroupBox>
                 </Grid>
             </TabItem>
