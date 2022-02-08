@@ -146,7 +146,7 @@ namespace CV19WpfApp.ViewModels
 
         private bool CanGeneratePasswordExecute(object p) => true;
 
-        private void OnGeneratePasswordExecute(object p)
+        private void OnGeneratePasswordExecuted(object p)
         {
             string str = "Test";
             string result="";

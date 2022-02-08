@@ -155,19 +155,44 @@ namespace CV19WpfApp.ViewModels
         #endregion
 
         #region SelectTabIndex
-
         public ICommand ChangeTabIndexCommand { get; }
-
         private bool CanChangeTabIndexCommandExecute(object p) => _SelectedPageIndex >= 0;
-
-        private void OnChangeTabIndexCommandExecute(object p)
+        private void OnChangeTabIndexCommandExecuted(object p)
         {
             if (p is null) return;
             SelectedPageIndex += Convert.ToInt32(p);
         }
-
         #endregion
 
+        #region CreateGroupCommand
+        public ICommand CreateGroupCommand { get; }
+        private bool CanCreateGroupCommandExecute(object p) => true;
+        private void OnCreateGroupCommandExecuted(object p)
+        {
+            var group_max_index = Groups.Count + 1;
+            var new_group = new Group()
+            {
+                Name = $"Группа {group_max_index}",
+                Students = new ObservableCollection<Student>()
+            };
+            Groups.Add(new_group);
+        }
+        #endregion CreateGroupCommand
+
+        #region DeleteGroupCommand
+        public ICommand DeleteGroupCommand { get; }
+        private bool CanDeleteGroupCommandExecute(object p) => p is Group group && Groups.Contains(group);
+        private void OnDeleteGroupCommandExecuted(object p)
+        {
+            if (!(p is Group group)) return;
+            var group_index=Groups.IndexOf(group);
+            Groups.Remove(group);
+            if (group_index<Groups.Count)
+            {
+                SelectedGroup = Groups[group_index];
+            }
+        }
+        #endregion DeleteGroupCommand
 
 
         #endregion
@@ -177,9 +202,13 @@ namespace CV19WpfApp.ViewModels
         public MainWindowViewModel()
         {
             #region Команды
+
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
-            ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecute, CanChangeTabIndexCommandExecute);
-            GeneratePassword=new LambdaCommand(OnGeneratePasswordExecute,CanGeneratePasswordExecute);
+            ChangeTabIndexCommand = new LambdaCommand(OnChangeTabIndexCommandExecuted, CanChangeTabIndexCommandExecute);
+            GeneratePassword = new LambdaCommand(OnGeneratePasswordExecuted, CanGeneratePasswordExecute);
+            CreateGroupCommand = new LambdaCommand(OnCreateGroupCommandExecuted, CanCreateGroupCommandExecute);
+            DeleteGroupCommand = new LambdaCommand(OnDeleteGroupCommandExecuted, CanDeleteGroupCommandExecute);
+
             #endregion
 
             var data_points = new List<DataPoint>((int)(360 / 0.1));
@@ -211,14 +240,14 @@ namespace CV19WpfApp.ViewModels
 
             Groups = new ObservableCollection<Group>(groups);
 
-            var data_list=new List<object>();
+            var data_list = new List<object>();
 
             data_list.Add("Hello World!");
             data_list.Add(42);
             var group = Groups[1];
             data_list.Add(group);
             data_list.Add(group.Students[0]);
-            CompositeCollection=data_list.ToArray();
+            CompositeCollection = data_list.ToArray();
 
         }
 
