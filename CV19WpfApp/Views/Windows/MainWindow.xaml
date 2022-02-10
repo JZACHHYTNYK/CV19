@@ -15,11 +15,9 @@
     <Window.InputBindings>
         <KeyBinding Modifiers="Ctrl" Key="Q" Command="{Binding CloseApplicationCommand}"/>
     </Window.InputBindings>
-
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-
     <Window.Resources>
         <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
         <Style TargetType="Button">
@@ -108,7 +106,6 @@
                         <ColumnDefinition Width="229.267"/>
                         <ColumnDefinition Width="20.733"/>
                         <ColumnDefinition/>
-
                     </Grid.ColumnDefinitions>
                     <GroupBox Grid.Column="0" Header="Группы" Grid.ColumnSpan="2">
                         <DockPanel>
@@ -123,7 +120,6 @@
                                 <Button   Style="{StaticResource CheckButtonStyle}"
                                           Command="{Binding CreateGroupCommand}"
                                           Content="Добавить">
-
                                 </Button>
                                 <Button Content="Удалить" Style="{StaticResource RemoveButtonStyle}"
                                         Command="{Binding DeleteGroupCommand}"
@@ -155,7 +151,6 @@
                                   VerticalGridLinesBrush="DarkGray"
                                   AlternatingRowBackground="LightGray">
                             <!--HorizontalGridLinesBrush="{x:Null}"-->
-
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"  Width="Auto" />
                                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"  />
@@ -168,7 +163,6 @@
                                             <DatePicker SelectedDate="{Binding Birthday}"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>-->
-
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate DataType="decanat:Student">
                                             <TextBlock Text="{Binding Birthday, StringFormat='dd.MM.yyyy'}" />
@@ -183,7 +177,6 @@
                                 <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
                                 <!--<DataGridTextColumn Header="Группа" Binding="{Binding DataContext.SelectedGroup.Name ,RelativeSource={RelativeSource AncestorType=DataGrid}}"/>-->
                             </DataGrid.Columns>
-
                         </DataGrid>
                     </GroupBox>
                 </Grid>
@@ -197,8 +190,7 @@
                     <oxy:LineSeries Color="Red"
                                     ItemsSource="{Binding TestDataPoints}"
                                     DataFieldX="XValue"
-                                    DataFieldY="YValue"
-                                    />
+                                    DataFieldY="YValue"/>
                 </oxy:Plot>
             </TabItem>
             <TabItem Header="Вкладка 2">
@@ -237,7 +229,6 @@
                              Content="123" Margin="108,5,0,0" Padding="14,5"
                              Style="{StaticResource CheckButtonStyle}"
                              Width="110" RenderTransformOrigin="0.5,0.5" >
-                        
                         <Button.RenderTransform>
                             <RotateTransform Angle="0" x:Name="ButtonRotate"/>
                         </Button.RenderTransform>
@@ -248,14 +239,12 @@
                                         <DoubleAnimation Storyboard.TargetName="ButtonRotate"
                                                          Storyboard.TargetProperty="Angle"
                                                          From="0" To="360" AutoReverse="True" 
-                                                         Duration="0:0:1"
-                                                         />
+                                                         Duration="0:0:1"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                         </Button.Triggers>
                     </Button>
-
                 </Grid>
             </TabItem>
             <TabItem Header="Генератор паролей">
