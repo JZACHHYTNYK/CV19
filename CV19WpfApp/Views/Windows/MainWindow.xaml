@@ -110,4 +110,5 @@
             <TabItem Header="Вкладка 4"></TabItem>
         </TabControl>
     </DockPanel>
+    
 </Window>
