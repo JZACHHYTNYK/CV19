@@ -3,6 +3,6 @@
 
     public partial class MainWindow
     {
-        public MainWindow() => InitializeComponent();bfdhgbdfhgdf
+        public MainWindow() => InitializeComponent();bfdhgbdfhgdfфыва
     }
 }
