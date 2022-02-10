@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CV19.Models
+namespace CV19WpfApp.Models
 {
     internal struct ConfirmedCount
     {

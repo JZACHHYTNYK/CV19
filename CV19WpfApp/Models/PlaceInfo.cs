@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 
-namespace CV19.Models
+namespace CV19WpfApp.Models
 {
     internal class PlaceInfo
     {

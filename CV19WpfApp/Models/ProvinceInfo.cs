@@ -1,4 +1,4 @@
-﻿namespace CV19.Models
+﻿namespace CV19WpfApp.Models
 {
     internal class ProvinceInfo : PlaceInfo { }
 }

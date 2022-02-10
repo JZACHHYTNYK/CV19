@@ -1,5 +1,6 @@
-﻿using CV19WpfApp.Infastructure.Commands;
-using CV19WpfApp.Model;
+﻿
+using CV19WpfApp.Infastructure.Commands;
+using CV19WpfApp.Models;
 using CV19WpfApp.ViewModels.Base;
 using System;
 using System.Collections.Generic;

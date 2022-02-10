@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CV19.Models
+namespace CV19WpfApp.Models
 {
     internal class CountryInfo : PlaceInfo
     {

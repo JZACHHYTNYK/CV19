@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CV19.Models.Decanat
+namespace CV19WpfApp.Models.Decanat
 {
     internal class Student
     {
