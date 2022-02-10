@@ -1,4 +1,4 @@
-﻿namespace CV19WpfApp.Model
+﻿namespace CV19.Models
 {
     internal struct DataPoint
     {
@@ -7,6 +7,3 @@
         public double YValue { get; set; }
     }
 }
-
-
-
