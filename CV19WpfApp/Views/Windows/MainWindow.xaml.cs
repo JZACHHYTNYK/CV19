@@ -1,13 +1,8 @@
-﻿using System.Windows;
-
-namespace CV19WpfApp
+﻿namespace CV19WpfApp
 {
- 
-    public partial class MainWindow : Window
+
+    public partial class MainWindow 
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
     }
 }

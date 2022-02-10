@@ -1,12 +1,7 @@
-﻿using System.Windows;
-
-namespace TestWpfApp
+﻿namespace TestWpfApp
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
     }
 }

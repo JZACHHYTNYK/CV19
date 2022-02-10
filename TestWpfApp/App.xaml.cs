@@ -1,9 +1,7 @@
-﻿using System.Windows;
-
-namespace TestWpfApp
+﻿namespace TestWpfApp
 {
 
-    public partial class App : Application
+    public partial class App 
     {
     }
 }
